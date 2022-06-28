@@ -3,11 +3,9 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-import './styles/index.less'
-
 import Vant from 'vant';
 import 'vant/lib/index.css';
-
+import './styles/index.less'
 //移动端单位适配
 import 'amfe-flexible'
 
