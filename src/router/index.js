@@ -12,7 +12,7 @@ const routes = [
     path: '/',
     // name: 'layout', // 如果父路由有默认子路由，那它的 name 没有意义
     component: () => import('@/views/layout'),
-    redirect:'home',
+    redirect: 'home',
     children: [
       {
         path: 'home', // 默认子路由，只能有1个 ""
@@ -36,7 +36,11 @@ const routes = [
         component: () => import('@/views/my')
       }
     ]
-  }
+  }, {
+    path: '/search',
+    name: 'search',
+    component: () => import('@/views/search')
+  },
 ]
 
 const router = new VueRouter({

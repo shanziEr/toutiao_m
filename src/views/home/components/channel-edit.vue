@@ -2,6 +2,7 @@
   <div class="channel-edit">
     <van-cell :border="false">
       <div slot="title" class="title-text">我的频道</div>
+      <!-- 有title插槽    van-cell中内容显示在右边 -->
       <van-button
         class="edit-btn"
         type="danger"
@@ -26,6 +27,7 @@
                       true，则作用该类名
                       false，不作用类名
          -->
+        <!-- 数组includes的方法 判断数组中有没有所传参数 -->
         <van-icon
           v-show="isEdit && !fiexdChannels.includes(channel.id)"
           slot="icon"
@@ -91,8 +93,6 @@ export default {
     recommendChannels() {
       // 数组的 filter 方法：遍历数组，把符合条件的元素存储到新数组中并返回
       return this.allChannels.filter((channel) => {
-        // const channels = []
-
         // 数组的 find 方法：遍历数组，把符合条件的第1个元素返回
         return !this.myChannels.find((myChannel) => {
           return myChannel.id === channel.id;
@@ -145,6 +145,7 @@ export default {
             id: channel.id, // 频道ID
             seq: this.myChannels.length, // 序号
           });
+          setItem("USER_TOUTIAO_CHANNELS", this.myChannels);
         } catch (err) {
           this.$toast("保存失败，请稍后重试");
         }

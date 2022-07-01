@@ -12,6 +12,12 @@
         to="/search"
         >搜索</van-button
       >
+     <template #right>
+    <van-icon name="search" size="18" @click="isChennelEditShow = true,left='right'"/>
+  </template>
+       <template #left>
+    <van-icon name="wap-nav" size="18" @click="isChennelEditShow = true,left='left'"/>
+  </template>
     </van-nav-bar>
     <!-- /导航栏 -->
 
@@ -32,14 +38,14 @@
         <article-list ref="article-list" :channel="channel" />
         <!-- 文章列表 -->
       </van-tab>
-      <!-- <div slot="nav-right" class="placeholder"></div>
+      <div slot="nav-right" class="placeholder"></div>
       <div
         slot="nav-right"
         class="hamburger-btn"
-        @click="isChennelEditShow = true"
+        @click="isChennelEditShow = true ,left='bottom'"
       >
         <i class="toutiao toutiao-gengduo"></i>
-      </div> -->
+      </div>
     </van-tabs>
     <!-- /频道列表 -->
 
@@ -47,8 +53,8 @@
     <van-popup
       v-model="isChennelEditShow"
       closeable
-      close-icon-position="top-left"
-      position="left"
+      close-icon-position="top-right"
+      :position="left"
       :style="{ height: '100%' }"
     >
       <channel-edit
@@ -80,6 +86,7 @@ export default {
       active: 0,
       channels: [], // 频道列表
       isChennelEditShow: false, // 控制编辑频道弹出层的显示状态
+      left:"bottom"
     };
   },
   computed: {
